@@ -46,8 +46,8 @@ st.markdown('<h1 class="main-header">🎓 Navodaya Results Dashboard</h1>', unsa
 # Supabase Setup
 # Using st.secrets is cleaner, but we want to fail gracefully if not set
 try:
-    supabase_url = st.secrets["SUPABASE_URL"]
-    supabase_key = st.secrets["SUPABASE_KEY"]
+    supabase_url = "https://gscrjjtfawnudycbtqxl.supabase.co"
+    supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzY3JqanRmYXdudWR5Y2J0cXhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI0NDYyOTQsImV4cCI6MjA0ODAyMjI5NH0.yQKItjeX1pYnjdah0zH4kKpT8ZkcpmHmDW1PKakRvFg"
 except FileNotFoundError:
     st.error("Secrets not found. Please create `.streamlit/secrets.toml` with `SUPABASE_URL` and `SUPABASE_KEY`.")
     st.stop()
