@@ -98,27 +98,41 @@ if submit_button:
                             if len(unique_totals) > 0 and user_total == unique_totals[0]:
                                 prize_message = {
                                     "amount": "5000/-",
-                                    "msg": "Congratulations! You have secured the 1st highest total."
+                                    "msg": "Congratulations! You have secured the 1st highest total.",
+                                    "awarded": True
                                 }
                             elif len(unique_totals) > 1 and user_total == unique_totals[1]:
                                 prize_message = {
                                     "amount": "3000/-",
-                                    "msg": "Congratulations! You have secured the 2nd highest total."
+                                    "msg": "Congratulations! You have secured the 2nd highest total.",
+                                    "awarded": True
+                                }
+                            else:
+                                prize_message = {
+                                    "msg": "No prize money awarded",
+                                    "awarded": False
                                 }
 
                     st.success("Result found!")
                     st.markdown('<div class="result-card">', unsafe_allow_html=True)
                     
-                    # Display Prize Section if eligible
+                    # Display Prize Section
                     if prize_message:
-                        st.balloons()
-                        st.markdown(f"""
-                        <div style="background-color: #d1e7dd; color: #0f5132; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border: 1px solid #badbcc; text-align: center;">
-                            <h2 style="margin-top: 0;">🎉 {prize_message['msg']} 🎉</h2>
-                            <h1 style="color: #198754; font-size: 3rem; margin: 1rem 0;">₹ {prize_message['amount']}</h1>
-                            <p style="font-size: 1.2rem; font-weight: bold;">Please collect your amount from <span style="color: #0d6efd;">Dakshinamurty Tution Center</span>.</p>
-                        </div>
-                        """, unsafe_allow_html=True)
+                        if prize_message.get('awarded'):
+                            st.balloons()
+                            st.markdown(f"""
+                            <div style="background-color: #d1e7dd; color: #0f5132; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border: 1px solid #badbcc; text-align: center;">
+                                <h2 style="margin-top: 0;">🎉 {prize_message['msg']} 🎉</h2>
+                                <h1 style="color: #198754; font-size: 3rem; margin: 1rem 0;">₹ {prize_message['amount']}</h1>
+                                <p style="font-size: 1.2rem; font-weight: bold;">Please collect your amount from <span style="color: #0d6efd;">Dakshinamurty Tution Center</span>.</p>
+                            </div>
+                            """, unsafe_allow_html=True)
+                        else:
+                            st.markdown(f"""
+                            <div style="background-color: #fff3cd; color: #856404; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border: 1px solid #ffeeba; text-align: center;">
+                                <h3 style="margin: 0;">{prize_message['msg']}</h3>
+                            </div>
+                            """, unsafe_allow_html=True)
 
                     st.subheader("Student Details")
                     
