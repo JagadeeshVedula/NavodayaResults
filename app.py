@@ -95,13 +95,13 @@ if submit_button:
                             # Get unique totals sorted descending
                             unique_totals = sorted(list(set([item['Total'] for item in rank_response.data if item['Total'] is not None])), reverse=True)
                             
-                            if len(unique_totals) > 0 and user_total == unique_totals[0] and int(user_total) > 60:
+                            if len(unique_totals) > 0 and user_total == unique_totals[0] and float(user_total) > 60:
                                 prize_message = {
                                     "amount": "5000/-",
                                     "msg": "Congratulations! You have secured the 1st highest total.",
                                     "awarded": True
                                 }
-                            elif len(unique_totals) > 1 and user_total == unique_totals[1] and int(user_total) > 60:
+                            elif len(unique_totals) > 1 and user_total == unique_totals[1] and float(user_total) > 60:
                                 prize_message = {
                                     "amount": "3000/-",
                                     "msg": "Congratulations! You have secured the 2nd highest total.",
