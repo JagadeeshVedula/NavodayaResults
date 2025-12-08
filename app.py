@@ -141,6 +141,7 @@ if submit_button:
                         if key.lower() != 'id': # Exclude 'id' (case-insensitive check)
                             formatted_key = key.replace('_', ' ').title()
                         if key.lower() == "total":
+                            formatted_key = key.replace('_', ' ').title()
                             st.markdown(f"**{formatted_key}:** {value}/80")
                         else:
                             st.markdown(f"**{formatted_key}:** {value}")
