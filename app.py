@@ -144,6 +144,7 @@ if submit_button:
                             formatted_key = key.replace('_', ' ').title()
                             st.markdown(f"**{formatted_key}:** {value}/80")
                         else:
+                            formatted_key = key.replace('_', ' ').title()
                             st.markdown(f"**{formatted_key}:** {value}")
                             #st.markdown(f"**{formatted_key}:** {value}")
                         
