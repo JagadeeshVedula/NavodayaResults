@@ -140,7 +140,11 @@ if submit_button:
                     for key, value in result.items():
                         if key.lower() != 'id': # Exclude 'id' (case-insensitive check)
                             formatted_key = key.replace('_', ' ').title()
+                        if key.lower() == "total":
+                            st.markdown(f"**{formatted_key}:** {value}/80")
+                        else:
                             st.markdown(f"**{formatted_key}:** {value}")
+                            #st.markdown(f"**{formatted_key}:** {value}")
                         
                     st.markdown('</div>', unsafe_allow_html=True)
                 else:
